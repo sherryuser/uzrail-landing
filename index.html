@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#fafaf7" />
+
+    <title>UzRail Watch — Train ticket alerts for Uzbekistan (Afrosiyob, Sharq)</title>
+    <meta name="description" content="Get notified the moment Uzbek Railways tickets become available. UzRail Watch is a Telegram bot that polls eticket.railway.uz every few seconds for Afrosiyob, Sharq, Nasaf and more — set a route, set a date, get a ping." />
+    <link rel="canonical" href="https://train.shaxriyor.me/" />
+
+    <meta property="og:title" content="UzRail Watch — Train ticket alerts for Uzbekistan" />
+    <meta property="og:description" content="A Telegram bot that pings you the moment Afrosiyob and Sharq tickets become available. Free to start, ★50/mo for Plus." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://train.shaxriyor.me/" />
+    <meta property="og:image" content="https://train.shaxriyor.me/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:site_name" content="UzRail Watch" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="UzRail Watch — Train ticket alerts for Uzbekistan" />
+    <meta name="twitter:description" content="A Telegram bot that pings you the moment Afrosiyob and Sharq tickets become available." />
+    <meta name="twitter:image" content="https://train.shaxriyor.me/og-image.png" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "UzRail Watch",
+      "alternateName": "UzRail Bot",
+      "applicationCategory": "TravelApplication",
+      "operatingSystem": "Telegram",
+      "url": "https://train.shaxriyor.me/",
+      "description": "Telegram bot that watches eticket.railway.uz and notifies users the moment Uzbek Railways tickets become available.",
+      "offers": [
+        { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD" },
+        { "@type": "Offer", "name": "Plus", "price": "0.65", "priceCurrency": "USD", "description": "★50 per month" },
+        { "@type": "Offer", "name": "Pro",  "price": "2.00", "priceCurrency": "USD", "description": "★150 per month" }
+      ],
+      "author": { "@type": "Person", "name": "Shaxriyor Ergashev", "url": "https://shaxriyor.live" }
+    }
+    </script>
+
+    <style>
+      :root {
+        --c-bg: #fafaf7;
+        --c-surface: #ffffff;
+        --c-text: #0e0f0c;
+        --c-text-warm: #454745;
+        --c-text-muted: #868685;
+        --c-line: rgba(14, 15, 12, 0.10);
+        --c-green: #9fe870;
+        --c-green-dark: #163300;
+        --c-green-pastel: #cdffad;
+        --c-green-mint: #e2f6d5;
+        --c-green-positive: #054d28;
+        --r-pill: 9999px;
+        --r-card: 30px;
+        --r-card-lg: 40px;
+        --ring: rgba(14, 15, 12, 0.1) 0px 0px 0px 1px;
+      }
+      *, *::before, *::after { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+      html, body { margin: 0; padding: 0; }
+      body {
+        background: var(--c-bg);
+        color: var(--c-text);
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        font-size: 18px;
+        font-weight: 600;
+        font-feature-settings: 'calt' 1;
+        line-height: 1.44;
+        letter-spacing: -0.108px;
+        -webkit-font-smoothing: antialiased;
+      }
+      a { color: inherit; text-decoration: none; }
+      button { font-family: inherit; font-feature-settings: 'calt' 1; cursor: pointer; border: none; background: none; padding: 0; color: inherit; }
+
+      .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+      /* ===== Nav ===== */
+      header.nav {
+        position: sticky;
+        top: 0; z-index: 50;
+        background: color-mix(in srgb, var(--c-bg) 88%, transparent);
+        backdrop-filter: saturate(160%) blur(18px);
+        -webkit-backdrop-filter: saturate(160%) blur(18px);
+        border-bottom: 1px solid var(--c-line);
+      }
+      .nav-row {
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 14px 0;
+      }
+      .logo {
+        display: inline-flex; align-items: center; gap: 10px;
+        font-weight: 800; font-size: 18px; letter-spacing: -0.012em;
+      }
+      .logo-mark {
+        width: 32px; height: 32px; border-radius: 8px;
+        background: var(--c-text); color: var(--c-green);
+        display: inline-flex; align-items: center; justify-content: center;
+      }
+      .nav-cta {
+        display: inline-flex; align-items: center; gap: 8px;
+        padding: 10px 18px;
+        background: var(--c-green); color: var(--c-green-dark);
+        border-radius: var(--r-pill);
+        font-weight: 700; font-size: 15px;
+        transition: transform 0.1s ease, background 0.15s ease;
+      }
+      .nav-cta:hover { background: var(--c-green-pastel); transform: scale(1.04); }
+      .nav-cta:active { transform: scale(0.96); }
+
+      /* ===== Hero ===== */
+      .hero { padding: 64px 0 56px; position: relative; overflow: hidden; }
+      .hero::after {
+        content: '';
+        position: absolute;
+        right: -120px; top: -120px;
+        width: 460px; height: 460px;
+        border-radius: 50%;
+        background: var(--c-green);
+        opacity: 0.16;
+        filter: blur(40px);
+        z-index: 0;
+      }
+      .hero-tag {
+        display: inline-flex; align-items: center; gap: 8px;
+        background: var(--c-green-mint);
+        color: var(--c-green-positive);
+        padding: 6px 14px;
+        border-radius: var(--r-pill);
+        font-size: 13px; font-weight: 700;
+        letter-spacing: -0.084px;
+        margin-bottom: 22px;
+        position: relative; z-index: 1;
+      }
+      .hero h1 {
+        margin: 0;
+        font-weight: 900;
+        font-size: clamp(48px, 9vw, 104px);
+        line-height: 0.86;
+        letter-spacing: -0.032em;
+        max-width: 14ch;
+        position: relative; z-index: 1;
+      }
+      .hero h1 em { font-style: normal; color: var(--c-green-positive); }
+      .hero p.lead {
+        margin: 24px 0 0;
+        font-size: clamp(17px, 2vw, 21px);
+        font-weight: 500;
+        color: var(--c-text-warm);
+        max-width: 56ch;
+        line-height: 1.5;
+        position: relative; z-index: 1;
+      }
+      .hero-actions {
+        display: flex; gap: 12px; flex-wrap: wrap;
+        margin-top: 36px;
+        position: relative; z-index: 1;
+      }
+      .btn {
+        display: inline-flex; align-items: center; justify-content: center;
+        gap: 8px;
+        padding: 16px 26px;
+        font-weight: 700; font-size: 16px;
+        border-radius: var(--r-pill);
+        background: var(--c-green); color: var(--c-green-dark);
+        transition: transform 0.12s ease, background 0.15s ease;
+      }
+      .btn:hover { background: var(--c-green-pastel); transform: scale(1.04); }
+      .btn:active { transform: scale(0.96); }
+      .btn-secondary {
+        background: rgba(22, 51, 0, 0.06);
+        color: var(--c-text);
+      }
+      .btn-secondary:hover { background: rgba(22, 51, 0, 0.10); }
+
+      /* ===== Stats strip ===== */
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 16px;
+        margin-top: 56px;
+        position: relative; z-index: 1;
+      }
+      .stat {
+        background: var(--c-surface);
+        box-shadow: var(--ring);
+        border-radius: 22px;
+        padding: 18px 20px;
+      }
+      .stat .num {
+        font-size: 40px; font-weight: 900;
+        letter-spacing: -0.02em;
+        line-height: 1; font-variant-numeric: tabular-nums;
+      }
+      .stat .label {
+        font-size: 13px; font-weight: 600;
+        color: var(--c-text-muted);
+        margin-top: 6px;
+      }
+
+      /* ===== Sections ===== */
+      section { padding: 80px 0 24px; }
+      .label {
+        font-size: 12px; font-weight: 700;
+        letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--c-text-muted);
+        margin-bottom: 12px;
+      }
+      h2.section-title {
+        margin: 0 0 16px;
+        font-weight: 900;
+        font-size: clamp(36px, 6vw, 60px);
+        line-height: 0.9;
+        letter-spacing: -0.022em;
+        max-width: 16ch;
+      }
+      h2.section-title em { font-style: normal; color: var(--c-green-positive); }
+      .section-sub {
+        margin: 0 0 40px;
+        font-size: 18px; font-weight: 500;
+        color: var(--c-text-warm);
+        max-width: 60ch;
+      }
+
+      /* ===== Steps ===== */
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 16px;
+      }
+      .step {
+        background: var(--c-surface);
+        box-shadow: var(--ring);
+        border-radius: var(--r-card);
+        padding: 24px;
+        position: relative;
+      }
+      .step .n {
+        display: inline-flex; align-items: center; justify-content: center;
+        width: 36px; height: 36px;
+        border-radius: 50%;
+        background: var(--c-green); color: var(--c-green-dark);
+        font-weight: 900; font-size: 16px;
+        margin-bottom: 16px;
+      }
+      .step h3 {
+        margin: 0 0 8px;
+        font-size: 22px; font-weight: 800;
+        letter-spacing: -0.012em;
+        line-height: 1.15;
+      }
+      .step p {
+        margin: 0;
+        color: var(--c-text-warm);
+        font-size: 16px; font-weight: 500;
+        line-height: 1.5;
+      }
+
+      /* ===== Plans ===== */
+      .plans {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 16px;
+      }
+      .plan {
+        background: var(--c-surface);
+        box-shadow: var(--ring);
+        border-radius: var(--r-card);
+        padding: 28px;
+        display: flex; flex-direction: column;
+      }
+      .plan.highlight {
+        box-shadow: var(--c-green) 0 0 0 2px;
+      }
+      .plan h3 {
+        margin: 0 0 4px;
+        font-size: 24px; font-weight: 900;
+        letter-spacing: -0.014em;
+      }
+      .plan .tag {
+        margin: 0 0 18px;
+        color: var(--c-text-muted); font-size: 14px;
+        font-weight: 500;
+      }
+      .plan .price {
+        font-size: 36px; font-weight: 900;
+        letter-spacing: -0.02em;
+        line-height: 1;
+        margin-bottom: 22px;
+      }
+      .plan .price small {
+        font-size: 14px; font-weight: 600;
+        color: var(--c-text-muted);
+        letter-spacing: 0.04em; text-transform: uppercase;
+        margin-left: 4px;
+      }
+      .plan ul {
+        list-style: none; padding: 0; margin: 0 0 22px;
+        display: flex; flex-direction: column; gap: 8px;
+      }
+      .plan ul li {
+        display: flex; align-items: center; gap: 10px;
+        font-size: 15px; font-weight: 500;
+        color: var(--c-text-warm);
+      }
+      .plan ul li::before {
+        content: '';
+        width: 18px; height: 18px;
+        border-radius: 50%;
+        background: var(--c-green-mint);
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23054d28' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+        background-size: 14px;
+        background-position: center;
+        background-repeat: no-repeat;
+        flex-shrink: 0;
+      }
+
+      /* ===== FAQ ===== */
+      .faq { display: flex; flex-direction: column; gap: 8px; }
+      .faq details {
+        background: var(--c-surface);
+        box-shadow: var(--ring);
+        border-radius: 16px;
+        padding: 0;
+        overflow: hidden;
+      }
+      .faq summary {
+        list-style: none;
+        cursor: pointer;
+        padding: 18px 22px;
+        font-size: 17px; font-weight: 700;
+        letter-spacing: -0.012em;
+        display: flex; align-items: center; justify-content: space-between;
+        gap: 16px;
+      }
+      .faq summary::-webkit-details-marker { display: none; }
+      .faq summary::after {
+        content: '+';
+        font-size: 24px; font-weight: 800;
+        color: var(--c-text-muted);
+        transition: transform 0.2s ease;
+      }
+      .faq details[open] summary::after { transform: rotate(45deg); }
+      .faq .a {
+        padding: 0 22px 20px;
+        font-size: 16px; font-weight: 500;
+        color: var(--c-text-warm); line-height: 1.55;
+      }
+      .faq .a code {
+        background: rgba(14,15,12,0.05);
+        padding: 2px 6px;
+        border-radius: 6px;
+        font-family: 'SF Mono', Menlo, monospace;
+        font-size: 14px;
+      }
+
+      /* ===== Closing CTA ===== */
+      .closing {
+        background: var(--c-text);
+        color: var(--c-bg);
+        border-radius: var(--r-card-lg);
+        padding: clamp(36px, 7vw, 72px);
+        margin: 60px 0 24px;
+        position: relative;
+        overflow: hidden;
+      }
+      .closing::after {
+        content: '';
+        position: absolute;
+        right: -120px; bottom: -120px;
+        width: 480px; height: 480px;
+        border-radius: 50%;
+        background: var(--c-green);
+        opacity: 0.18;
+        filter: blur(40px);
+      }
+      .closing h2 {
+        margin: 0;
+        font-weight: 900;
+        font-size: clamp(36px, 7vw, 72px);
+        line-height: 0.88;
+        letter-spacing: -0.024em;
+        max-width: 14ch;
+        position: relative; z-index: 1;
+      }
+      .closing h2 em { font-style: normal; color: var(--c-green); }
+      .closing p {
+        margin: 18px 0 0;
+        font-size: 17px; font-weight: 500;
+        color: rgba(255,255,255,0.7);
+        max-width: 50ch;
+        position: relative; z-index: 1;
+      }
+      .closing .btn {
+        margin-top: 32px;
+        position: relative; z-index: 1;
+      }
+
+      /* ===== Footer ===== */
+      footer.foot {
+        padding: 40px 0 56px;
+        border-top: 1px solid var(--c-line);
+        margin-top: 24px;
+      }
+      .foot-row {
+        display: flex; flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 16px;
+        font-size: 14px;
+        color: var(--c-text-muted);
+        font-weight: 500;
+      }
+      .foot-links a {
+        margin-right: 16px;
+        transition: color 0.15s ease;
+      }
+      .foot-links a:hover { color: var(--c-text); }
+
+      @media (max-width: 600px) {
+        .hero { padding: 36px 0 32px; }
+        section { padding: 56px 0 16px; }
+        .closing { margin: 32px 0 16px; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <header class="nav">
+      <div class="wrap">
+        <div class="nav-row">
+          <a class="logo" href="/" aria-label="UzRail Watch home">
+            <span class="logo-mark" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="3" width="16" height="14" rx="3"/>
+                <line x1="4" y1="11" x2="20" y2="11"/>
+                <line x1="7" y1="20" x2="5" y2="22"/>
+                <line x1="17" y1="20" x2="19" y2="22"/>
+              </svg>
+            </span>
+            UzRail Watch
+          </a>
+          <a class="nav-cta" href="https://t.me/uzrailway_watch_bot" rel="noopener">Open in Telegram</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-h">
+        <div class="wrap">
+          <span class="hero-tag">★ Powered by Telegram Stars</span>
+          <h1 id="hero-h">Train tickets, before they <em>sell out.</em></h1>
+          <p class="lead">
+            UzRail Watch polls <a href="https://eticket.railway.uz/" rel="noopener" style="color: var(--c-text); text-decoration: underline; text-decoration-color: var(--c-green); text-decoration-thickness: 2px; text-underline-offset: 4px">eticket.railway.uz</a> every few seconds for Afrosiyob, Sharq, Nasaf and Jaloliddin Manguberdi seats. Set a route, pick a date, and we'll ping you on Telegram the moment a matching ticket appears.
+          </p>
+          <div class="hero-actions">
+            <a class="btn" href="https://t.me/uzrailway_watch_bot" rel="noopener">Open in Telegram →</a>
+            <a class="btn btn-secondary" href="#how">See how it works</a>
+          </div>
+
+          <div class="stats">
+            <div class="stat"><div class="num">~5s</div><div class="label">Notification latency</div></div>
+            <div class="stat"><div class="num">16</div><div class="label">Stations covered</div></div>
+            <div class="stat"><div class="num">5</div><div class="label">Train brands tracked</div></div>
+            <div class="stat"><div class="num">Free</div><div class="label">to start</div></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="how" aria-labelledby="how-h">
+        <div class="wrap">
+          <div class="label">How it works</div>
+          <h2 class="section-title" id="how-h">Three steps. <em>That's it.</em></h2>
+          <p class="section-sub">No installs, no accounts, no scraping passwords. Live entirely inside Telegram.</p>
+
+          <div class="steps">
+            <div class="step">
+              <div class="n">1</div>
+              <h3>Open in Telegram</h3>
+              <p>Tap "Open in Telegram" — the bot welcomes you, the in-chat menu shows an Open button that launches the app.</p>
+            </div>
+            <div class="step">
+              <div class="n">2</div>
+              <h3>Set a filter</h3>
+              <p>Pick origin and destination, the date, and (optionally) a specific brand or class. We support all 16 stations on the network.</p>
+            </div>
+            <div class="step">
+              <div class="n">3</div>
+              <h3>Get pinged</h3>
+              <p>When matching seats appear, we send you a Telegram notification with the train, time, class and price — plus a button to confirm if you grabbed the ticket.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="plans" aria-labelledby="plans-h">
+        <div class="wrap">
+          <div class="label">Plans</div>
+          <h2 class="section-title" id="plans-h">Simple, fair, <em>in stars.</em></h2>
+          <p class="section-sub">Pay with Telegram Stars — the digital currency built into your Telegram account. Cancel any time inside Telegram itself.</p>
+
+          <div class="plans">
+            <div class="plan">
+              <h3>Free</h3>
+              <p class="tag">Get started, no commitment.</p>
+              <div class="price">★ 0</div>
+              <ul>
+                <li>2 active filters</li>
+                <li>8-second polling</li>
+                <li>14-day date range</li>
+                <li>Standard notifications</li>
+              </ul>
+              <a class="btn btn-secondary" href="https://t.me/uzrailway_watch_bot" rel="noopener">Open the bot</a>
+            </div>
+
+            <div class="plan highlight">
+              <h3>Plus</h3>
+              <p class="tag">For frequent travelers.</p>
+              <div class="price">★ 50<small>/ MO</small></div>
+              <ul>
+                <li>10 active filters</li>
+                <li>4-second polling</li>
+                <li>60-day date range</li>
+                <li>Priority notifications</li>
+              </ul>
+              <a class="btn" href="https://t.me/uzrailway_watch_bot" rel="noopener">Upgrade in app</a>
+            </div>
+
+            <div class="plan">
+              <h3>Pro</h3>
+              <p class="tag">Maximum vigilance.</p>
+              <div class="price">★ 150<small>/ MO</small></div>
+              <ul>
+                <li>25 active filters</li>
+                <li>2-second polling</li>
+                <li>90-day date range</li>
+                <li>Filter notes & labels</li>
+              </ul>
+              <a class="btn btn-secondary" href="https://t.me/uzrailway_watch_bot" rel="noopener">Upgrade in app</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" aria-labelledby="faq-h">
+        <div class="wrap">
+          <div class="label">FAQ</div>
+          <h2 class="section-title" id="faq-h">Things people ask.</h2>
+          <p class="section-sub" style="margin-bottom: 24px"></p>
+
+          <div class="faq">
+            <details>
+              <summary>Is this an official UTY / O'zbekiston Temir Yo'llari product?</summary>
+              <div class="a">No. UzRail Watch is an independent third-party tool that monitors the public booking site on your behalf. We don't book or pay for tickets — that part still happens on the railway's own site or app.</div>
+            </details>
+            <details>
+              <summary>How fast are notifications, really?</summary>
+              <div class="a">From a seat opening up on the railway's API to a Telegram notification on your phone: typically 5–10 seconds on Free, ~2–4 seconds on Plus, ~2 seconds on Pro. The actual end-to-end latency depends on Telegram's delivery, your phone's connectivity, and how heavily we're polling that route.</div>
+            </details>
+            <details>
+              <summary>Which trains and stations are supported?</summary>
+              <div class="a">Brands: Afrosiyob, Sharq, Nasaf, Jaloliddin Manguberdi, Express, Passenger. All 16 long-distance stations on the UTY network — Tashkent, Samarkand, Bukhara, Khiva, Termez, Andijan, Karshi, Urgench, Navoi, Namangan, Nukus, and others.</div>
+            </details>
+            <details>
+              <summary>How do I pay? What are Telegram Stars?</summary>
+              <div class="a">Telegram Stars (★) are Telegram's built-in digital currency. You buy them via Apple App Store or Google Play, then spend them inside Telegram apps. Plus is ★50/month, Pro is ★150/month. Both are subscriptions you can cancel any time in <code>Settings → Telegram Stars → My Subscriptions</code>.</div>
+            </details>
+            <details>
+              <summary>Can I get a refund?</summary>
+              <div class="a">Yes — message <code>/paysupport</code> to the bot within 21 days and we'll refund your Stars and revert your tier to Free.</div>
+            </details>
+            <details>
+              <summary>Does the bot store my eticket.railway.uz password?</summary>
+              <div class="a">No, never. We only store your Telegram user ID and the filters you've set. Booking still happens on the railway's site under your own account.</div>
+            </details>
+            <details>
+              <summary>Is the code open source?</summary>
+              <div class="a">Yes — see the GitHub link below. Run your own copy if you'd rather self-host.</div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap">
+          <div class="closing">
+            <h2>Stop refreshing. <em>Start travelling.</em></h2>
+            <p>Open the bot, set your first filter — it takes about 30 seconds.</p>
+            <a class="btn" href="https://t.me/uzrailway_watch_bot" rel="noopener">Open in Telegram →</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <div class="wrap">
+        <div class="foot-row">
+          <div>© 2026 UzRail Watch · built by <a href="https://shaxriyor.live" rel="noopener" style="color: var(--c-text)">shaxriyor</a></div>
+          <div class="foot-links">
+            <a href="https://t.me/uzrailway_watch_bot" rel="noopener">Telegram</a>
+            <a href="https://github.com/sherryuser/uzrail-bot" rel="noopener">GitHub</a>
+            <a href="https://t.me/uzrailway_watch_bot?start=terms" rel="noopener">Terms</a>
+            <a href="https://t.me/uzrailway_watch_bot?start=paysupport" rel="noopener">Support</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+</html>
