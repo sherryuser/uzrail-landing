@@ -2,6 +2,13 @@
 
 > A Telegram bot that monitors eticket.railway.uz (the official Uzbek Railways booking site) and notifies users the moment train tickets matching their filters become available. Built specifically for the Uzbekistan rail network — supports all 16 long-distance stations and 6 train brands including Afrosiyob, Sharq, Nasaf, and Jaloliddin Manguberdi.
 
+## Languages
+
+The marketing site is available in three languages:
+- Russian (default): https://train.shaxriyor.me/
+- English: https://train.shaxriyor.me/en/
+- Uzbek (Latin): https://train.shaxriyor.me/uz/
+
 UzRail Watch is an independent, third-party tool. It does not book or pay for tickets — it only watches the booking site and sends notifications. Users complete the actual purchase on eticket.railway.uz under their own account. Subscriptions are paid in Telegram Stars (XTR) inside Telegram itself.
 
 ## What it does

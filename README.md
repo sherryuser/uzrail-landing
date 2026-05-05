@@ -20,17 +20,22 @@ Popular Uzbek trains — Afrosiyob, Sharq, Nasaf, Jaloliddin Manguberdi — sell
 
 ## What's in here
 
-A single-file landing page, hand-written HTML + inline CSS, no JS framework. Designed to score 100/100 on Lighthouse (mobile + desktop), be indexable by every search engine, and hand off as fast as physically possible.
+A trilingual landing page (Russian default, English, Uzbek), hand-written HTML + inline CSS, no JS framework. Designed to score 100/100 on Lighthouse (mobile + desktop), be indexable by every search engine, and hand off as fast as physically possible.
 
 ```
 .
-├── index.html       Landing page (24 KB, 6 KB gzipped)
+├── index.html       Russian landing — default at /
+├── en/index.html    English landing at /en/
+├── uz/index.html    Uzbek (Latin) landing at /uz/
 ├── favicon.svg      Vector favicon — 580 B
 ├── og-image.png     OpenGraph / Twitter card — 1200×630
+├── llms.txt         AI-search summary (emerging GEO standard)
 ├── robots.txt       Allow all, disallow /api & /app
-├── sitemap.xml      Single-URL sitemap
+├── sitemap.xml      Multi-URL sitemap with hreflang annotations
 └── LICENSE          MIT
 ```
+
+Each locale has its own canonical, its own `og:url`, its own JSON-LD WebPage and FAQPage entities (with `inLanguage` set), and full hreflang cross-references — so Google, Yandex and AI crawlers can serve each language to the right user without conflating them.
 
 ## Design
 

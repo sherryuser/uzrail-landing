@@ -1,43 +1,42 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#fafaf7" />
 
-    <title>UzRail Watch — Train ticket alerts for Uzbekistan (Afrosiyob, Sharq)</title>
-    <meta name="description" content="Get notified the moment Uzbek Railways tickets become available. UzRail Watch is a Telegram bot that polls eticket.railway.uz every few seconds for Afrosiyob, Sharq, Nasaf and more — set a route, set a date, get a ping." />
+    <title>UzRail Watch — Уведомления о билетах на поезда Узбекистана (Afrosiyob, Sharq)</title>
+    <meta name="description" content="Получайте уведомления, как только появляются билеты на поезда Узбекских железных дорог. UzRail Watch — Telegram-бот, который опрашивает eticket.railway.uz каждые несколько секунд: Afrosiyob, Sharq, Nasaf и другие." />
     <link rel="canonical" href="https://train.shaxriyor.me/" />
 
-    <meta property="og:title" content="UzRail Watch — Train ticket alerts for Uzbekistan" />
-    <meta property="og:description" content="A Telegram bot that pings you the moment Afrosiyob and Sharq tickets become available. Free to start, ★50/mo for Plus." />
+    <meta property="og:title" content="UzRail Watch — Уведомления о билетах на поезда Узбекистана" />
+    <meta property="og:description" content="Telegram-бот, который пингует, как только появляются билеты Afrosiyob и Sharq. Бесплатно для старта, ★50/мес за Plus." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://train.shaxriyor.me/" />
     <meta property="og:image" content="https://train.shaxriyor.me/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:locale" content="en" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:locale:alternate" content="uz_UZ" />
     <meta property="og:site_name" content="UzRail Watch" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="UzRail Watch — Train ticket alerts for Uzbekistan" />
-    <meta name="twitter:description" content="A Telegram bot that pings you the moment Afrosiyob and Sharq tickets become available." />
+    <meta name="twitter:title" content="UzRail Watch — Уведомления о билетах на поезда Узбекистана" />
+    <meta name="twitter:description" content="Telegram-бот, который пингует, как только появляются билеты Afrosiyob и Sharq." />
     <meta name="twitter:image" content="https://train.shaxriyor.me/og-image.png" />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="alternate" hreflang="en" href="https://train.shaxriyor.me/" />
+    <link rel="alternate" hreflang="ru" href="https://train.shaxriyor.me/" />
+    <link rel="alternate" hreflang="en" href="https://train.shaxriyor.me/en/" />
+    <link rel="alternate" hreflang="uz" href="https://train.shaxriyor.me/uz/" />
     <link rel="alternate" hreflang="x-default" href="https://train.shaxriyor.me/" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
-    <!-- Google Search Console verification (replace the value once you've created a property at search.google.com/search-console) -->
-    <!-- <meta name="google-site-verification" content="REPLACE_WITH_YOUR_VERIFICATION_CODE" /> -->
-
-    <!-- Yandex / Bing verification placeholders -->
-    <!-- <meta name="yandex-verification" content="REPLACE_WITH_VERIFICATION_CODE" /> -->
-    <!-- <meta name="msvalidate.01" content="REPLACE_WITH_VERIFICATION_CODE" /> -->
+    <meta name="google-site-verification" content="PegWfOQM5fWtWzVNDF_ywiagepnBxA6Ps1LUw8_JXIg" />
 
     <script type="application/ld+json">
     {
@@ -49,7 +48,7 @@
           "name": "UzRail Watch",
           "url": "https://train.shaxriyor.me/",
           "logo": "https://train.shaxriyor.me/og-image.png",
-          "description": "Independent Telegram-based ticket-availability watcher for Uzbek Railways (eticket.railway.uz).",
+          "description": "Независимый Telegram-сервис мониторинга билетов на поезда Узбекистана (eticket.railway.uz).",
           "founder": { "@type": "Person", "name": "Shaxriyor Ergashev", "url": "https://shaxriyor.me" },
           "foundingDate": "2026-05",
           "areaServed": { "@type": "Country", "name": "Uzbekistan" },
@@ -65,14 +64,15 @@
           "url": "https://train.shaxriyor.me/",
           "name": "UzRail Watch",
           "publisher": { "@id": "https://train.shaxriyor.me/#org" },
-          "inLanguage": "en"
+          "inLanguage": "ru"
         },
         {
           "@type": "WebPage",
-          "@id": "https://train.shaxriyor.me/#page",
+          "@id": "https://train.shaxriyor.me/#page-ru",
           "url": "https://train.shaxriyor.me/",
-          "name": "UzRail Watch — Train ticket alerts for Uzbekistan",
+          "name": "UzRail Watch — Уведомления о билетах на поезда Узбекистана",
           "isPartOf": { "@id": "https://train.shaxriyor.me/#site" },
+          "inLanguage": "ru",
           "datePublished": "2026-05-04",
           "dateModified": "2026-05-05",
           "primaryImageOfPage": "https://train.shaxriyor.me/og-image.png",
@@ -80,13 +80,13 @@
             "@type": "SpeakableSpecification",
             "cssSelector": ["h1", ".lead", "h2.section-title", ".step h3", ".step p", ".plan h3", ".plan ul"]
           },
-          "breadcrumb": { "@id": "https://train.shaxriyor.me/#breadcrumb" }
+          "breadcrumb": { "@id": "https://train.shaxriyor.me/#breadcrumb-ru" }
         },
         {
           "@type": "BreadcrumbList",
-          "@id": "https://train.shaxriyor.me/#breadcrumb",
+          "@id": "https://train.shaxriyor.me/#breadcrumb-ru",
           "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://train.shaxriyor.me/" }
+            { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://train.shaxriyor.me/" }
           ]
         },
         {
@@ -95,83 +95,84 @@
           "name": "UzRail Watch",
           "alternateName": ["UzRail Bot", "@uzrailway_watch_bot"],
           "applicationCategory": "TravelApplication",
-          "applicationSubCategory": "Train ticket monitoring",
+          "applicationSubCategory": "Мониторинг билетов на поезда",
           "operatingSystem": "Telegram",
           "url": "https://train.shaxriyor.me/",
           "downloadUrl": "https://t.me/uzrailway_watch_bot",
-          "description": "A Telegram bot that polls eticket.railway.uz every few seconds and notifies users the moment Uzbek Railways tickets matching their filters become available. Supports Afrosiyob, Sharq, Nasaf, Jaloliddin Manguberdi and other UTY trains across all 16 long-distance stations.",
+          "description": "Telegram-бот, опрашивающий eticket.railway.uz каждые несколько секунд и присылающий уведомление, как только появляются билеты Узбекских железных дорог по выбранному фильтру. Поддерживает Afrosiyob, Sharq, Nasaf, Jaloliddin Manguberdi и другие поезда УТЫ на всех 16 станциях дальнего следования.",
           "featureList": [
-            "Real-time train ticket availability monitoring",
-            "Filters by route, date, train brand and car class",
-            "Telegram Mini App for filter management",
-            "Sub-10-second notification latency",
-            "Subscription tiers paid in Telegram Stars"
+            "Мониторинг билетов в реальном времени",
+            "Фильтры по маршруту, дате, бренду и классу вагона",
+            "Telegram Mini App для управления фильтрами",
+            "Задержка уведомлений менее 10 секунд",
+            "Подписки в Telegram Stars"
           ],
           "offers": [
-            { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD", "description": "2 filters, 8s polling, 14-day range" },
-            { "@type": "Offer", "name": "Plus", "price": "0.65", "priceCurrency": "USD", "description": "★50/month — 10 filters, 4s polling, 60-day range" },
-            { "@type": "Offer", "name": "Pro",  "price": "2.00", "priceCurrency": "USD", "description": "★150/month — 25 filters, 2s polling, 90-day range" }
+            { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD", "description": "2 фильтра, опрос 8 с, 14 дней" },
+            { "@type": "Offer", "name": "Plus", "price": "0.65", "priceCurrency": "USD", "description": "★50/мес — 10 фильтров, опрос 4 с, 60 дней" },
+            { "@type": "Offer", "name": "Pro",  "price": "2.00", "priceCurrency": "USD", "description": "★150/мес — 25 фильтров, опрос 2 с, 90 дней" }
           ],
           "author": { "@id": "https://train.shaxriyor.me/#org" }
         },
         {
           "@type": "FAQPage",
-          "@id": "https://train.shaxriyor.me/#faq",
+          "@id": "https://train.shaxriyor.me/#faq-ru",
+          "inLanguage": "ru",
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "Is this an official UTY / O'zbekiston Temir Yo'llari product?",
+              "name": "Это официальный продукт Узбекских железных дорог (UTY)?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "No. UzRail Watch is an independent third-party tool that monitors the public booking site on your behalf. It does not book or pay for tickets — that part still happens on the railway's own site or app."
+                "text": "Нет. UzRail Watch — независимый сторонний инструмент, который наблюдает за публичным сайтом бронирования от вашего имени. Мы не покупаем и не оплачиваем билеты — это происходит на сайте железной дороги под вашим аккаунтом."
               }
             },
             {
               "@type": "Question",
-              "name": "How fast are notifications?",
+              "name": "Насколько быстры уведомления?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "From a seat opening up on the railway's API to a Telegram notification on your phone: typically 5–10 seconds on Free, 2–4 seconds on Plus, and around 2 seconds on Pro. The actual end-to-end latency depends on Telegram's delivery, the user's connectivity, and how heavily the route is being polled."
+                "text": "От появления места в API железной дороги до уведомления в Telegram: обычно 5–10 секунд на тарифе Free, 2–4 секунды на Plus, около 2 секунд на Pro. Реальная задержка зависит от Telegram, интернета и того, насколько часто опрашивается ваш маршрут."
               }
             },
             {
               "@type": "Question",
-              "name": "Which trains and stations does UzRail Watch support?",
+              "name": "Какие поезда и станции поддерживаются?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Brands: Afrosiyob, Sharq, Nasaf, Jaloliddin Manguberdi, Express, Passenger. Stations: all 16 long-distance stations on the UTY network — Tashkent, Samarkand, Bukhara, Khiva, Termez, Andijan, Karshi, Urgench, Navoi, Namangan, Nukus, Margilan, Kokand, Pap, Jizzakh, and Gulistan."
+                "text": "Бренды: Afrosiyob, Sharq, Nasaf, Jaloliddin Manguberdi, Express, Passenger. Все 16 станций дальнего следования сети УТЫ — Ташкент, Самарканд, Бухара, Хива, Термез, Андижан, Карши, Ургенч, Навои, Наманган, Нукус, Маргилан, Коканд, Пап, Джизак, Гулистан."
               }
             },
             {
               "@type": "Question",
-              "name": "How do I pay? What are Telegram Stars?",
+              "name": "Как платить? Что такое Telegram Stars?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Telegram Stars (★) are Telegram's built-in digital currency. You buy them via the Apple App Store or Google Play, then spend them inside Telegram apps. UzRail Watch Plus is ★50 per month, Pro is ★150 per month. Both are subscriptions you can cancel any time in Telegram → Settings → Telegram Stars → My Subscriptions."
+                "text": "Telegram Stars (★) — встроенная цифровая валюта Telegram. Покупаете через App Store или Google Play, тратите внутри приложений Telegram. Plus стоит ★50 в месяц, Pro — ★150 в месяц. Обе подписки можно отменить в любой момент в Настройки → Telegram Stars → Мои подписки."
               }
             },
             {
               "@type": "Question",
-              "name": "Can I get a refund?",
+              "name": "Можно ли вернуть деньги?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes. Send /paysupport to the bot within 21 days of the payment and we will refund your Stars and revert your tier to Free."
+                "text": "Да. Отправьте /paysupport боту в течение 21 дня после оплаты — мы вернём ваши Stars и переведём тариф на Free."
               }
             },
             {
               "@type": "Question",
-              "name": "Does the bot store my eticket.railway.uz password?",
+              "name": "Бот хранит мой пароль от eticket.railway.uz?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "No, never. UzRail Watch only stores your Telegram user ID and the filters you have set. Booking still happens on the railway's site under your own account."
+                "text": "Нет, никогда. UzRail Watch хранит только ваш Telegram user ID и созданные вами фильтры. Бронирование происходит на сайте железной дороги под вашим аккаунтом."
               }
             },
             {
               "@type": "Question",
-              "name": "Is the code open source?",
+              "name": "Код открыт?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes. The bot's source code is available at github.com/sherryuser/uzrail-bot and the landing page at github.com/sherryuser/uzrail-landing. Both are MIT licensed."
+                "text": "Да. Исходный код бота — github.com/sherryuser/uzrail-bot, лендинга — github.com/sherryuser/uzrail-landing. Оба под лицензией MIT."
               }
             }
           ]
@@ -180,16 +181,13 @@
     }
     </script>
 
-    <!-- Google Analytics 4 — replace G-XXXXXXXXXX with your measurement ID from analytics.google.com, then uncomment.
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DGLWTLHC5F"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX', { anonymize_ip: true });
+      gtag('config', 'G-DGLWTLHC5F');
     </script>
-    -->
-
 
     <style>
       :root {
@@ -212,367 +210,104 @@
       *, *::before, *::after { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
       html, body { margin: 0; padding: 0; }
       body {
-        background: var(--c-bg);
-        color: var(--c-text);
+        background: var(--c-bg); color: var(--c-text);
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        font-size: 18px;
-        font-weight: 600;
-        font-feature-settings: 'calt' 1;
-        line-height: 1.44;
-        letter-spacing: -0.108px;
+        font-size: 18px; font-weight: 600; font-feature-settings: 'calt' 1;
+        line-height: 1.44; letter-spacing: -0.108px;
         -webkit-font-smoothing: antialiased;
       }
       a { color: inherit; text-decoration: none; }
-      button { font-family: inherit; font-feature-settings: 'calt' 1; cursor: pointer; border: none; background: none; padding: 0; color: inherit; }
-
+      button { font-family: inherit; cursor: pointer; border: none; background: none; padding: 0; color: inherit; }
       .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
-
-      /* ===== Nav ===== */
-      header.nav {
-        position: sticky;
-        top: 0; z-index: 50;
+      header.nav { position: sticky; top: 0; z-index: 50;
         background: color-mix(in srgb, var(--c-bg) 88%, transparent);
         backdrop-filter: saturate(160%) blur(18px);
         -webkit-backdrop-filter: saturate(160%) blur(18px);
-        border-bottom: 1px solid var(--c-line);
-      }
-      .nav-row {
-        display: flex; align-items: center; justify-content: space-between;
-        padding: 14px 0;
-      }
-      .logo {
-        display: inline-flex; align-items: center; gap: 10px;
-        font-weight: 800; font-size: 18px; letter-spacing: -0.012em;
-      }
-      .logo-mark {
-        width: 32px; height: 32px; border-radius: 8px;
-        background: var(--c-text); color: var(--c-green);
-        display: inline-flex; align-items: center; justify-content: center;
-      }
-      .nav-cta {
-        display: inline-flex; align-items: center; gap: 8px;
-        padding: 10px 18px;
-        background: var(--c-green); color: var(--c-green-dark);
-        border-radius: var(--r-pill);
-        font-weight: 700; font-size: 15px;
-        transition: transform 0.1s ease, background 0.15s ease;
-      }
+        border-bottom: 1px solid var(--c-line); }
+      .nav-row { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
+      .logo { display: inline-flex; align-items: center; gap: 10px; font-weight: 800; font-size: 18px; letter-spacing: -0.012em; }
+      .logo-mark { width: 32px; height: 32px; border-radius: 8px; background: var(--c-text); color: var(--c-green);
+        display: inline-flex; align-items: center; justify-content: center; }
+      .nav-cta { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px;
+        background: var(--c-green); color: var(--c-green-dark); border-radius: var(--r-pill);
+        font-weight: 700; font-size: 15px; transition: transform 0.1s ease, background 0.15s ease; }
       .nav-cta:hover { background: var(--c-green-pastel); transform: scale(1.04); }
       .nav-cta:active { transform: scale(0.96); }
-
-      /* ===== Hero ===== */
+      .nav-right { display: flex; align-items: center; gap: 12px; }
+      .lang-switch { display: inline-flex; background: rgba(14,15,12,0.05); border-radius: var(--r-pill); padding: 3px; }
+      .lang-switch a { padding: 6px 12px; border-radius: var(--r-pill); font-size: 13px; font-weight: 700;
+        color: var(--c-text-warm); text-transform: uppercase; letter-spacing: 0.04em;
+        transition: background 0.15s ease, color 0.15s ease; }
+      .lang-switch a.active { background: var(--c-text); color: var(--c-bg); }
+      .lang-switch a:not(.active):hover { color: var(--c-text); }
+      @media (max-width: 520px) { .nav-cta { padding: 8px 14px; font-size: 14px; } .lang-switch a { padding: 5px 10px; font-size: 12px; } }
       .hero { padding: 64px 0 56px; position: relative; overflow: hidden; }
-      .hero::after {
-        content: '';
-        position: absolute;
-        right: -120px; top: -120px;
-        width: 460px; height: 460px;
-        border-radius: 50%;
-        background: var(--c-green);
-        opacity: 0.16;
-        filter: blur(40px);
-        z-index: 0;
-      }
-      .hero-tag {
-        display: inline-flex; align-items: center; gap: 8px;
-        background: var(--c-green-mint);
-        color: var(--c-green-positive);
-        padding: 6px 14px;
-        border-radius: var(--r-pill);
-        font-size: 13px; font-weight: 700;
-        letter-spacing: -0.084px;
-        margin-bottom: 22px;
-        position: relative; z-index: 1;
-      }
-      .hero h1 {
-        margin: 0;
-        font-weight: 900;
-        font-size: clamp(48px, 9vw, 104px);
-        line-height: 0.86;
-        letter-spacing: -0.032em;
-        max-width: 14ch;
-        position: relative; z-index: 1;
-      }
+      .hero::after { content: ''; position: absolute; right: -120px; top: -120px; width: 460px; height: 460px;
+        border-radius: 50%; background: var(--c-green); opacity: 0.16; filter: blur(40px); z-index: 0; }
+      .hero-tag { display: inline-flex; align-items: center; gap: 8px; background: var(--c-green-mint);
+        color: var(--c-green-positive); padding: 6px 14px; border-radius: var(--r-pill);
+        font-size: 13px; font-weight: 700; letter-spacing: -0.084px; margin-bottom: 22px; position: relative; z-index: 1; }
+      .hero h1 { margin: 0; font-weight: 900; font-size: clamp(48px, 9vw, 104px); line-height: 0.86;
+        letter-spacing: -0.032em; max-width: 14ch; position: relative; z-index: 1; }
       .hero h1 em { font-style: normal; color: var(--c-green-positive); }
-      .hero p.lead {
-        margin: 24px 0 0;
-        font-size: clamp(17px, 2vw, 21px);
-        font-weight: 500;
-        color: var(--c-text-warm);
-        max-width: 56ch;
-        line-height: 1.5;
-        position: relative; z-index: 1;
-      }
-      .hero-actions {
-        display: flex; gap: 12px; flex-wrap: wrap;
-        margin-top: 36px;
-        position: relative; z-index: 1;
-      }
-      .btn {
-        display: inline-flex; align-items: center; justify-content: center;
-        gap: 8px;
-        padding: 16px 26px;
-        font-weight: 700; font-size: 16px;
-        border-radius: var(--r-pill);
-        background: var(--c-green); color: var(--c-green-dark);
-        transition: transform 0.12s ease, background 0.15s ease;
-      }
+      .hero p.lead { margin: 24px 0 0; font-size: clamp(17px, 2vw, 21px); font-weight: 500;
+        color: var(--c-text-warm); max-width: 56ch; line-height: 1.5; position: relative; z-index: 1; }
+      .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 36px; position: relative; z-index: 1; }
+      .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 16px 26px;
+        font-weight: 700; font-size: 16px; border-radius: var(--r-pill);
+        background: var(--c-green); color: var(--c-green-dark); transition: transform 0.12s ease, background 0.15s ease; }
       .btn:hover { background: var(--c-green-pastel); transform: scale(1.04); }
       .btn:active { transform: scale(0.96); }
-      .btn-secondary {
-        background: rgba(22, 51, 0, 0.06);
-        color: var(--c-text);
-      }
+      .btn-secondary { background: rgba(22, 51, 0, 0.06); color: var(--c-text); }
       .btn-secondary:hover { background: rgba(22, 51, 0, 0.10); }
-
-      /* ===== Stats strip ===== */
-      .stats {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 16px;
-        margin-top: 56px;
-        position: relative; z-index: 1;
-      }
-      .stat {
-        background: var(--c-surface);
-        box-shadow: var(--ring);
-        border-radius: 22px;
-        padding: 18px 20px;
-      }
-      .stat .num {
-        font-size: 40px; font-weight: 900;
-        letter-spacing: -0.02em;
-        line-height: 1; font-variant-numeric: tabular-nums;
-      }
-      .stat .label {
-        font-size: 13px; font-weight: 600;
-        color: var(--c-text-muted);
-        margin-top: 6px;
-      }
-
-      /* ===== Sections ===== */
+      .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-top: 56px; position: relative; z-index: 1; }
+      .stat { background: var(--c-surface); box-shadow: var(--ring); border-radius: 22px; padding: 18px 20px; }
+      .stat .num { font-size: 40px; font-weight: 900; letter-spacing: -0.02em; line-height: 1; font-variant-numeric: tabular-nums; }
+      .stat .label { font-size: 13px; font-weight: 600; color: var(--c-text-muted); margin-top: 6px; }
       section { padding: 80px 0 24px; }
-      .label {
-        font-size: 12px; font-weight: 700;
-        letter-spacing: 0.08em; text-transform: uppercase;
-        color: var(--c-text-muted);
-        margin-bottom: 12px;
-      }
-      h2.section-title {
-        margin: 0 0 16px;
-        font-weight: 900;
-        font-size: clamp(36px, 6vw, 60px);
-        line-height: 0.9;
-        letter-spacing: -0.022em;
-        max-width: 16ch;
-      }
+      .label { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--c-text-muted); margin-bottom: 12px; }
+      h2.section-title { margin: 0 0 16px; font-weight: 900; font-size: clamp(36px, 6vw, 60px); line-height: 0.9; letter-spacing: -0.022em; max-width: 16ch; }
       h2.section-title em { font-style: normal; color: var(--c-green-positive); }
-      .section-sub {
-        margin: 0 0 40px;
-        font-size: 18px; font-weight: 500;
-        color: var(--c-text-warm);
-        max-width: 60ch;
-      }
-
-      /* ===== Steps ===== */
-      .steps {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 16px;
-      }
-      .step {
-        background: var(--c-surface);
-        box-shadow: var(--ring);
-        border-radius: var(--r-card);
-        padding: 24px;
-        position: relative;
-      }
-      .step .n {
-        display: inline-flex; align-items: center; justify-content: center;
-        width: 36px; height: 36px;
-        border-radius: 50%;
-        background: var(--c-green); color: var(--c-green-dark);
-        font-weight: 900; font-size: 16px;
-        margin-bottom: 16px;
-      }
-      .step h3 {
-        margin: 0 0 8px;
-        font-size: 22px; font-weight: 800;
-        letter-spacing: -0.012em;
-        line-height: 1.15;
-      }
-      .step p {
-        margin: 0;
-        color: var(--c-text-warm);
-        font-size: 16px; font-weight: 500;
-        line-height: 1.5;
-      }
-
-      /* ===== Plans ===== */
-      .plans {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 16px;
-      }
-      .plan {
-        background: var(--c-surface);
-        box-shadow: var(--ring);
-        border-radius: var(--r-card);
-        padding: 28px;
-        display: flex; flex-direction: column;
-      }
-      .plan.highlight {
-        box-shadow: var(--c-green) 0 0 0 2px;
-      }
-      .plan h3 {
-        margin: 0 0 4px;
-        font-size: 24px; font-weight: 900;
-        letter-spacing: -0.014em;
-      }
-      .plan .tag {
-        margin: 0 0 18px;
-        color: var(--c-text-muted); font-size: 14px;
-        font-weight: 500;
-      }
-      .plan .price {
-        font-size: 36px; font-weight: 900;
-        letter-spacing: -0.02em;
-        line-height: 1;
-        margin-bottom: 22px;
-      }
-      .plan .price small {
-        font-size: 14px; font-weight: 600;
-        color: var(--c-text-muted);
-        letter-spacing: 0.04em; text-transform: uppercase;
-        margin-left: 4px;
-      }
-      .plan ul {
-        list-style: none; padding: 0; margin: 0 0 22px;
-        display: flex; flex-direction: column; gap: 8px;
-      }
-      .plan ul li {
-        display: flex; align-items: center; gap: 10px;
-        font-size: 15px; font-weight: 500;
-        color: var(--c-text-warm);
-      }
-      .plan ul li::before {
-        content: '';
-        width: 18px; height: 18px;
-        border-radius: 50%;
-        background: var(--c-green-mint);
+      .section-sub { margin: 0 0 40px; font-size: 18px; font-weight: 500; color: var(--c-text-warm); max-width: 60ch; }
+      .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+      .step { background: var(--c-surface); box-shadow: var(--ring); border-radius: var(--r-card); padding: 24px; position: relative; }
+      .step .n { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px;
+        border-radius: 50%; background: var(--c-green); color: var(--c-green-dark); font-weight: 900; font-size: 16px; margin-bottom: 16px; }
+      .step h3 { margin: 0 0 8px; font-size: 22px; font-weight: 800; letter-spacing: -0.012em; line-height: 1.15; }
+      .step p { margin: 0; color: var(--c-text-warm); font-size: 16px; font-weight: 500; line-height: 1.5; }
+      .plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+      .plan { background: var(--c-surface); box-shadow: var(--ring); border-radius: var(--r-card); padding: 28px; display: flex; flex-direction: column; }
+      .plan.highlight { box-shadow: var(--c-green) 0 0 0 2px; }
+      .plan h3 { margin: 0 0 4px; font-size: 24px; font-weight: 900; letter-spacing: -0.014em; }
+      .plan .tag { margin: 0 0 18px; color: var(--c-text-muted); font-size: 14px; font-weight: 500; }
+      .plan .price { font-size: 36px; font-weight: 900; letter-spacing: -0.02em; line-height: 1; margin-bottom: 22px; }
+      .plan .price small { font-size: 14px; font-weight: 600; color: var(--c-text-muted); letter-spacing: 0.04em; text-transform: uppercase; margin-left: 4px; }
+      .plan ul { list-style: none; padding: 0; margin: 0 0 22px; display: flex; flex-direction: column; gap: 8px; }
+      .plan ul li { display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 500; color: var(--c-text-warm); }
+      .plan ul li::before { content: ''; width: 18px; height: 18px; border-radius: 50%; background: var(--c-green-mint);
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23054d28' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
-        background-size: 14px;
-        background-position: center;
-        background-repeat: no-repeat;
-        flex-shrink: 0;
-      }
-
-      /* ===== FAQ ===== */
+        background-size: 14px; background-position: center; background-repeat: no-repeat; flex-shrink: 0; }
       .faq { display: flex; flex-direction: column; gap: 8px; }
-      .faq details {
-        background: var(--c-surface);
-        box-shadow: var(--ring);
-        border-radius: 16px;
-        padding: 0;
-        overflow: hidden;
-      }
-      .faq summary {
-        list-style: none;
-        cursor: pointer;
-        padding: 18px 22px;
-        font-size: 17px; font-weight: 700;
-        letter-spacing: -0.012em;
-        display: flex; align-items: center; justify-content: space-between;
-        gap: 16px;
-      }
+      .faq details { background: var(--c-surface); box-shadow: var(--ring); border-radius: 16px; padding: 0; overflow: hidden; }
+      .faq summary { list-style: none; cursor: pointer; padding: 18px 22px; font-size: 17px; font-weight: 700;
+        letter-spacing: -0.012em; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
       .faq summary::-webkit-details-marker { display: none; }
-      .faq summary::after {
-        content: '+';
-        font-size: 24px; font-weight: 800;
-        color: var(--c-text-muted);
-        transition: transform 0.2s ease;
-      }
+      .faq summary::after { content: '+'; font-size: 24px; font-weight: 800; color: var(--c-text-muted); transition: transform 0.2s ease; }
       .faq details[open] summary::after { transform: rotate(45deg); }
-      .faq .a {
-        padding: 0 22px 20px;
-        font-size: 16px; font-weight: 500;
-        color: var(--c-text-warm); line-height: 1.55;
-      }
-      .faq .a code {
-        background: rgba(14,15,12,0.05);
-        padding: 2px 6px;
-        border-radius: 6px;
-        font-family: 'SF Mono', Menlo, monospace;
-        font-size: 14px;
-      }
-
-      /* ===== Closing CTA ===== */
-      .closing {
-        background: var(--c-text);
-        color: var(--c-bg);
-        border-radius: var(--r-card-lg);
-        padding: clamp(36px, 7vw, 72px);
-        margin: 60px 0 24px;
-        position: relative;
-        overflow: hidden;
-      }
-      .closing::after {
-        content: '';
-        position: absolute;
-        right: -120px; bottom: -120px;
-        width: 480px; height: 480px;
-        border-radius: 50%;
-        background: var(--c-green);
-        opacity: 0.18;
-        filter: blur(40px);
-      }
-      .closing h2 {
-        margin: 0;
-        font-weight: 900;
-        font-size: clamp(36px, 7vw, 72px);
-        line-height: 0.88;
-        letter-spacing: -0.024em;
-        max-width: 14ch;
-        position: relative; z-index: 1;
-      }
+      .faq .a { padding: 0 22px 20px; font-size: 16px; font-weight: 500; color: var(--c-text-warm); line-height: 1.55; }
+      .faq .a code { background: rgba(14,15,12,0.05); padding: 2px 6px; border-radius: 6px; font-family: 'SF Mono', Menlo, monospace; font-size: 14px; }
+      .closing { background: var(--c-text); color: var(--c-bg); border-radius: var(--r-card-lg); padding: clamp(36px, 7vw, 72px); margin: 60px 0 24px; position: relative; overflow: hidden; }
+      .closing::after { content: ''; position: absolute; right: -120px; bottom: -120px; width: 480px; height: 480px;
+        border-radius: 50%; background: var(--c-green); opacity: 0.18; filter: blur(40px); }
+      .closing h2 { margin: 0; font-weight: 900; font-size: clamp(36px, 7vw, 72px); line-height: 0.88; letter-spacing: -0.024em; max-width: 14ch; position: relative; z-index: 1; }
       .closing h2 em { font-style: normal; color: var(--c-green); }
-      .closing p {
-        margin: 18px 0 0;
-        font-size: 17px; font-weight: 500;
-        color: rgba(255,255,255,0.7);
-        max-width: 50ch;
-        position: relative; z-index: 1;
-      }
-      .closing .btn {
-        margin-top: 32px;
-        position: relative; z-index: 1;
-      }
-
-      /* ===== Footer ===== */
-      footer.foot {
-        padding: 40px 0 56px;
-        border-top: 1px solid var(--c-line);
-        margin-top: 24px;
-      }
-      .foot-row {
-        display: flex; flex-wrap: wrap;
-        justify-content: space-between;
-        gap: 16px;
-        font-size: 14px;
-        color: var(--c-text-muted);
-        font-weight: 500;
-      }
-      .foot-links a {
-        margin-right: 16px;
-        transition: color 0.15s ease;
-      }
+      .closing p { margin: 18px 0 0; font-size: 17px; font-weight: 500; color: rgba(255,255,255,0.7); max-width: 50ch; position: relative; z-index: 1; }
+      .closing .btn { margin-top: 32px; position: relative; z-index: 1; }
+      footer.foot { padding: 40px 0 56px; border-top: 1px solid var(--c-line); margin-top: 24px; }
+      .foot-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-size: 14px; color: var(--c-text-muted); font-weight: 500; }
+      .foot-links a { margin-right: 16px; transition: color 0.15s ease; }
       .foot-links a:hover { color: var(--c-text); }
-
-      @media (max-width: 600px) {
-        .hero { padding: 36px 0 32px; }
-        section { padding: 56px 0 16px; }
-        .closing { margin: 32px 0 16px; }
-      }
+      @media (max-width: 600px) { .hero { padding: 36px 0 32px; } section { padding: 56px 0 16px; } .closing { margin: 32px 0 16px; } }
     </style>
   </head>
   <body>
@@ -580,7 +315,7 @@
     <header class="nav">
       <div class="wrap">
         <div class="nav-row">
-          <a class="logo" href="/" aria-label="UzRail Watch home">
+          <a class="logo" href="/" aria-label="UzRail Watch — главная">
             <span class="logo-mark" aria-hidden="true">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="4" y="3" width="16" height="14" rx="3"/>
@@ -591,7 +326,14 @@
             </span>
             UzRail Watch
           </a>
-          <a class="nav-cta" href="https://t.me/uzrailway_watch_bot" rel="noopener">Open in Telegram</a>
+          <div class="nav-right">
+            <nav class="lang-switch" aria-label="Язык">
+              <a href="/" class="active" aria-current="page">RU</a>
+              <a href="/en/" hreflang="en">EN</a>
+              <a href="/uz/" hreflang="uz">UZ</a>
+            </nav>
+            <a class="nav-cta" href="https://t.me/uzrailway_watch_bot" rel="noopener">Открыть в Telegram</a>
+          </div>
         </div>
       </div>
     </header>
@@ -599,46 +341,46 @@
     <main>
       <section class="hero" aria-labelledby="hero-h">
         <div class="wrap">
-          <span class="hero-tag">★ Powered by Telegram Stars</span>
-          <h1 id="hero-h">Train tickets, before they <em>sell out.</em></h1>
+          <span class="hero-tag">★ Оплата через Telegram Stars</span>
+          <h1 id="hero-h">Билеты на поезд, <em>пока их не раскупили.</em></h1>
           <p class="lead">
-            UzRail Watch polls <a href="https://eticket.railway.uz/" rel="noopener" style="color: var(--c-text); text-decoration: underline; text-decoration-color: var(--c-green); text-decoration-thickness: 2px; text-underline-offset: 4px">eticket.railway.uz</a> every few seconds for Afrosiyob, Sharq, Nasaf and Jaloliddin Manguberdi seats. Set a route, pick a date, and we'll ping you on Telegram the moment a matching ticket appears.
+            UzRail Watch проверяет <a href="https://eticket.railway.uz/" rel="noopener" style="color: var(--c-text); text-decoration: underline; text-decoration-color: var(--c-green); text-decoration-thickness: 2px; text-underline-offset: 4px">eticket.railway.uz</a> каждые несколько секунд на наличие мест в Afrosiyob, Sharq, Nasaf и Jaloliddin Manguberdi. Выберите маршрут, дату — и мы пришлём уведомление в Telegram, как только появятся подходящие билеты.
           </p>
           <div class="hero-actions">
-            <a class="btn" href="https://t.me/uzrailway_watch_bot" rel="noopener">Open in Telegram →</a>
-            <a class="btn btn-secondary" href="#how">See how it works</a>
+            <a class="btn" href="https://t.me/uzrailway_watch_bot" rel="noopener">Открыть в Telegram →</a>
+            <a class="btn btn-secondary" href="#how">Как это работает</a>
           </div>
 
           <div class="stats">
-            <div class="stat"><div class="num">~5s</div><div class="label">Notification latency</div></div>
-            <div class="stat"><div class="num">16</div><div class="label">Stations covered</div></div>
-            <div class="stat"><div class="num">5</div><div class="label">Train brands tracked</div></div>
-            <div class="stat"><div class="num">Free</div><div class="label">to start</div></div>
+            <div class="stat"><div class="num">~5 c</div><div class="label">Скорость уведомлений</div></div>
+            <div class="stat"><div class="num">16</div><div class="label">Поддерживаемых станций</div></div>
+            <div class="stat"><div class="num">5</div><div class="label">Брендов поездов</div></div>
+            <div class="stat"><div class="num">Free</div><div class="label">для старта</div></div>
           </div>
         </div>
       </section>
 
       <section id="how" aria-labelledby="how-h">
         <div class="wrap">
-          <div class="label">How it works</div>
-          <h2 class="section-title" id="how-h">Three steps. <em>That's it.</em></h2>
-          <p class="section-sub">No installs, no accounts, no scraping passwords. Live entirely inside Telegram.</p>
+          <div class="label">Как это работает</div>
+          <h2 class="section-title" id="how-h">Всего <em>три шага.</em></h2>
+          <p class="section-sub">Без установок, без аккаунтов, без хранения паролей. Всё происходит внутри Telegram.</p>
 
           <div class="steps">
             <div class="step">
               <div class="n">1</div>
-              <h3>Open in Telegram</h3>
-              <p>Tap "Open in Telegram" — the bot welcomes you, the in-chat menu shows an Open button that launches the app.</p>
+              <h3>Откройте в Telegram</h3>
+              <p>Нажмите «Открыть в Telegram» — бот поприветствует вас, и в меню чата появится кнопка для запуска приложения.</p>
             </div>
             <div class="step">
               <div class="n">2</div>
-              <h3>Set a filter</h3>
-              <p>Pick origin and destination, the date, and (optionally) a specific brand or class. We support all 16 stations on the network.</p>
+              <h3>Создайте фильтр</h3>
+              <p>Выберите станцию отправления и прибытия, дату и при желании — бренд поезда или класс вагона. Поддерживаем все 16 станций сети.</p>
             </div>
             <div class="step">
               <div class="n">3</div>
-              <h3>Get pinged</h3>
-              <p>When matching seats appear, we send you a Telegram notification with the train, time, class and price — plus a button to confirm if you grabbed the ticket.</p>
+              <h3>Получайте уведомления</h3>
+              <p>Когда подходящие места появятся, мы пришлём в Telegram уведомление с поездом, временем, классом и ценой — и кнопкой, чтобы отметить, успели ли вы купить билет.</p>
             </div>
           </div>
         </div>
@@ -646,48 +388,48 @@
 
       <section id="plans" aria-labelledby="plans-h">
         <div class="wrap">
-          <div class="label">Plans</div>
-          <h2 class="section-title" id="plans-h">Simple, fair, <em>in stars.</em></h2>
-          <p class="section-sub">Pay with Telegram Stars — the digital currency built into your Telegram account. Cancel any time inside Telegram itself.</p>
+          <div class="label">Тарифы</div>
+          <h2 class="section-title" id="plans-h">Просто. Честно. <em>В звёздах.</em></h2>
+          <p class="section-sub">Оплачивайте через Telegram Stars — встроенную цифровую валюту Telegram. Отменить можно в любой момент в самом Telegram.</p>
 
           <div class="plans">
             <div class="plan">
               <h3>Free</h3>
-              <p class="tag">Get started, no commitment.</p>
+              <p class="tag">Начните без обязательств.</p>
               <div class="price">★ 0</div>
               <ul>
-                <li>2 active filters</li>
-                <li>8-second polling</li>
-                <li>14-day date range</li>
-                <li>Standard notifications</li>
+                <li>2 активных фильтра</li>
+                <li>Опрос каждые 8 секунд</li>
+                <li>Поиск на 14 дней вперёд</li>
+                <li>Обычные уведомления</li>
               </ul>
-              <a class="btn btn-secondary" href="https://t.me/uzrailway_watch_bot" rel="noopener">Open the bot</a>
+              <a class="btn btn-secondary" href="https://t.me/uzrailway_watch_bot" rel="noopener">Открыть бота</a>
             </div>
 
             <div class="plan highlight">
               <h3>Plus</h3>
-              <p class="tag">For frequent travelers.</p>
-              <div class="price">★ 50<small>/ MO</small></div>
+              <p class="tag">Для тех, кто часто в дороге.</p>
+              <div class="price">★ 50<small>/ МЕС</small></div>
               <ul>
-                <li>10 active filters</li>
-                <li>4-second polling</li>
-                <li>60-day date range</li>
-                <li>Priority notifications</li>
+                <li>10 активных фильтров</li>
+                <li>Опрос каждые 4 секунды</li>
+                <li>Поиск на 60 дней вперёд</li>
+                <li>Приоритетные уведомления</li>
               </ul>
-              <a class="btn" href="https://t.me/uzrailway_watch_bot" rel="noopener">Upgrade in app</a>
+              <a class="btn" href="https://t.me/uzrailway_watch_bot" rel="noopener">Подписаться в приложении</a>
             </div>
 
             <div class="plan">
               <h3>Pro</h3>
-              <p class="tag">Maximum vigilance.</p>
-              <div class="price">★ 150<small>/ MO</small></div>
+              <p class="tag">Максимальная бдительность.</p>
+              <div class="price">★ 150<small>/ МЕС</small></div>
               <ul>
-                <li>25 active filters</li>
-                <li>2-second polling</li>
-                <li>90-day date range</li>
-                <li>Filter notes & labels</li>
+                <li>25 активных фильтров</li>
+                <li>Опрос каждые 2 секунды</li>
+                <li>Поиск на 90 дней вперёд</li>
+                <li>Заметки и метки на фильтрах</li>
               </ul>
-              <a class="btn btn-secondary" href="https://t.me/uzrailway_watch_bot" rel="noopener">Upgrade in app</a>
+              <a class="btn btn-secondary" href="https://t.me/uzrailway_watch_bot" rel="noopener">Подписаться в приложении</a>
             </div>
           </div>
         </div>
@@ -695,38 +437,38 @@
 
       <section id="faq" aria-labelledby="faq-h">
         <div class="wrap">
-          <div class="label">FAQ</div>
-          <h2 class="section-title" id="faq-h">Things people ask.</h2>
+          <div class="label">Частые вопросы</div>
+          <h2 class="section-title" id="faq-h">Что обычно спрашивают.</h2>
           <p class="section-sub" style="margin-bottom: 24px"></p>
 
           <div class="faq">
             <details>
-              <summary>Is this an official UTY / O'zbekiston Temir Yo'llari product?</summary>
-              <div class="a">No. UzRail Watch is an independent third-party tool that monitors the public booking site on your behalf. We don't book or pay for tickets — that part still happens on the railway's own site or app.</div>
+              <summary>Это официальный продукт Узбекских железных дорог?</summary>
+              <div class="a">Нет. UzRail Watch — независимый сторонний инструмент, который наблюдает за публичным сайтом бронирования от вашего имени. Мы не покупаем и не оплачиваем билеты — это вы делаете сами на сайте железной дороги или в их приложении.</div>
             </details>
             <details>
-              <summary>How fast are notifications, really?</summary>
-              <div class="a">From a seat opening up on the railway's API to a Telegram notification on your phone: typically 5–10 seconds on Free, ~2–4 seconds on Plus, ~2 seconds on Pro. The actual end-to-end latency depends on Telegram's delivery, your phone's connectivity, and how heavily we're polling that route.</div>
+              <summary>Насколько быстры уведомления на самом деле?</summary>
+              <div class="a">От появления места в API железной дороги до уведомления в Telegram: обычно 5–10 секунд на тарифе Free, 2–4 секунды на Plus, около 2 секунд на Pro. Реальная задержка зависит от Telegram, интернета на вашем телефоне и того, насколько часто опрашивается ваш маршрут.</div>
             </details>
             <details>
-              <summary>Which trains and stations are supported?</summary>
-              <div class="a">Brands: Afrosiyob, Sharq, Nasaf, Jaloliddin Manguberdi, Express, Passenger. All 16 long-distance stations on the UTY network — Tashkent, Samarkand, Bukhara, Khiva, Termez, Andijan, Karshi, Urgench, Navoi, Namangan, Nukus, and others.</div>
+              <summary>Какие поезда и станции поддерживаются?</summary>
+              <div class="a">Бренды: Afrosiyob, Sharq, Nasaf, Jaloliddin Manguberdi, Express, Passenger. Все 16 станций дальнего следования сети УТЫ — Ташкент, Самарканд, Бухара, Хива, Термез, Андижан, Карши, Ургенч, Навои, Наманган, Нукус и другие.</div>
             </details>
             <details>
-              <summary>How do I pay? What are Telegram Stars?</summary>
-              <div class="a">Telegram Stars (★) are Telegram's built-in digital currency. You buy them via Apple App Store or Google Play, then spend them inside Telegram apps. Plus is ★50/month, Pro is ★150/month. Both are subscriptions you can cancel any time in <code>Settings → Telegram Stars → My Subscriptions</code>.</div>
+              <summary>Как платить? Что такое Telegram Stars?</summary>
+              <div class="a">Telegram Stars (★) — встроенная цифровая валюта Telegram. Покупаете через Apple App Store или Google Play, тратите внутри приложений Telegram. Plus — ★50/мес, Pro — ★150/мес. Обе подписки можно отменить в любое время в <code>Настройки → Telegram Stars → Мои подписки</code>.</div>
             </details>
             <details>
-              <summary>Can I get a refund?</summary>
-              <div class="a">Yes — message <code>/paysupport</code> to the bot within 21 days and we'll refund your Stars and revert your tier to Free.</div>
+              <summary>Можно ли вернуть деньги?</summary>
+              <div class="a">Да — отправьте <code>/paysupport</code> боту в течение 21 дня после оплаты, и мы вернём ваши Stars и переведём тариф на Free.</div>
             </details>
             <details>
-              <summary>Does the bot store my eticket.railway.uz password?</summary>
-              <div class="a">No, never. We only store your Telegram user ID and the filters you've set. Booking still happens on the railway's site under your own account.</div>
+              <summary>Бот хранит мой пароль от eticket.railway.uz?</summary>
+              <div class="a">Нет, никогда. Мы храним только ваш Telegram user ID и созданные вами фильтры. Бронирование происходит на сайте железной дороги под вашим аккаунтом.</div>
             </details>
             <details>
-              <summary>Is the code open source?</summary>
-              <div class="a">Yes — see the GitHub link below. Run your own copy if you'd rather self-host.</div>
+              <summary>Код открыт?</summary>
+              <div class="a">Да — ссылка на GitHub внизу страницы. Можете развернуть свою копию.</div>
             </details>
           </div>
         </div>
@@ -735,9 +477,9 @@
       <section>
         <div class="wrap">
           <div class="closing">
-            <h2>Stop refreshing. <em>Start travelling.</em></h2>
-            <p>Open the bot, set your first filter — it takes about 30 seconds.</p>
-            <a class="btn" href="https://t.me/uzrailway_watch_bot" rel="noopener">Open in Telegram →</a>
+            <h2>Хватит обновлять. <em>Поехали.</em></h2>
+            <p>Откройте бота и создайте первый фильтр — это займёт около 30 секунд.</p>
+            <a class="btn" href="https://t.me/uzrailway_watch_bot" rel="noopener">Открыть в Telegram →</a>
           </div>
         </div>
       </section>
@@ -746,12 +488,12 @@
     <footer class="foot">
       <div class="wrap">
         <div class="foot-row">
-          <div>© 2026 UzRail Watch · built by <a href="https://shaxriyor.me" rel="noopener" style="color: var(--c-text)">sherry</a></div>
+          <div>© 2026 UzRail Watch · сделано <a href="https://shaxriyor.me" rel="noopener" style="color: var(--c-text)">sherry</a></div>
           <div class="foot-links">
             <a href="https://t.me/uzrailway_watch_bot" rel="noopener">Telegram</a>
             <a href="https://github.com/sherryuser/uzrail-bot" rel="noopener">GitHub</a>
-            <a href="https://t.me/uzrailway_watch_bot?start=terms" rel="noopener">Terms</a>
-            <a href="https://t.me/uzrailway_watch_bot?start=paysupport" rel="noopener">Support</a>
+            <a href="https://t.me/uzrailway_watch_bot?start=terms" rel="noopener">Условия</a>
+            <a href="https://t.me/uzrailway_watch_bot?start=paysupport" rel="noopener">Поддержка</a>
           </div>
         </div>
       </div>
