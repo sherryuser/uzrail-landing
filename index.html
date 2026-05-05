@@ -25,29 +25,171 @@
     <meta name="twitter:image" content="https://train.shaxriyor.me/og-image.png" />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" hreflang="en" href="https://train.shaxriyor.me/" />
+    <link rel="alternate" hreflang="x-default" href="https://train.shaxriyor.me/" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
+    <!-- Google Search Console verification (replace the value once you've created a property at search.google.com/search-console) -->
+    <!-- <meta name="google-site-verification" content="REPLACE_WITH_YOUR_VERIFICATION_CODE" /> -->
+
+    <!-- Yandex / Bing verification placeholders -->
+    <!-- <meta name="yandex-verification" content="REPLACE_WITH_VERIFICATION_CODE" /> -->
+    <!-- <meta name="msvalidate.01" content="REPLACE_WITH_VERIFICATION_CODE" /> -->
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "UzRail Watch",
-      "alternateName": "UzRail Bot",
-      "applicationCategory": "TravelApplication",
-      "operatingSystem": "Telegram",
-      "url": "https://train.shaxriyor.me/",
-      "description": "Telegram bot that watches eticket.railway.uz and notifies users the moment Uzbek Railways tickets become available.",
-      "offers": [
-        { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD" },
-        { "@type": "Offer", "name": "Plus", "price": "0.65", "priceCurrency": "USD", "description": "★50 per month" },
-        { "@type": "Offer", "name": "Pro",  "price": "2.00", "priceCurrency": "USD", "description": "★150 per month" }
-      ],
-      "author": { "@type": "Person", "name": "Shaxriyor Ergashev", "url": "https://shaxriyor.live" }
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://train.shaxriyor.me/#org",
+          "name": "UzRail Watch",
+          "url": "https://train.shaxriyor.me/",
+          "logo": "https://train.shaxriyor.me/og-image.png",
+          "description": "Independent Telegram-based ticket-availability watcher for Uzbek Railways (eticket.railway.uz).",
+          "founder": { "@type": "Person", "name": "Shaxriyor Ergashev", "url": "https://shaxriyor.me" },
+          "foundingDate": "2026-05",
+          "areaServed": { "@type": "Country", "name": "Uzbekistan" },
+          "sameAs": [
+            "https://t.me/uzrailway_watch_bot",
+            "https://github.com/sherryuser/uzrail-bot",
+            "https://github.com/sherryuser/uzrail-landing"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://train.shaxriyor.me/#site",
+          "url": "https://train.shaxriyor.me/",
+          "name": "UzRail Watch",
+          "publisher": { "@id": "https://train.shaxriyor.me/#org" },
+          "inLanguage": "en"
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://train.shaxriyor.me/#page",
+          "url": "https://train.shaxriyor.me/",
+          "name": "UzRail Watch — Train ticket alerts for Uzbekistan",
+          "isPartOf": { "@id": "https://train.shaxriyor.me/#site" },
+          "datePublished": "2026-05-04",
+          "dateModified": "2026-05-05",
+          "primaryImageOfPage": "https://train.shaxriyor.me/og-image.png",
+          "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": ["h1", ".lead", "h2.section-title", ".step h3", ".step p", ".plan h3", ".plan ul"]
+          },
+          "breadcrumb": { "@id": "https://train.shaxriyor.me/#breadcrumb" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://train.shaxriyor.me/#breadcrumb",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://train.shaxriyor.me/" }
+          ]
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://train.shaxriyor.me/#app",
+          "name": "UzRail Watch",
+          "alternateName": ["UzRail Bot", "@uzrailway_watch_bot"],
+          "applicationCategory": "TravelApplication",
+          "applicationSubCategory": "Train ticket monitoring",
+          "operatingSystem": "Telegram",
+          "url": "https://train.shaxriyor.me/",
+          "downloadUrl": "https://t.me/uzrailway_watch_bot",
+          "description": "A Telegram bot that polls eticket.railway.uz every few seconds and notifies users the moment Uzbek Railways tickets matching their filters become available. Supports Afrosiyob, Sharq, Nasaf, Jaloliddin Manguberdi and other UTY trains across all 16 long-distance stations.",
+          "featureList": [
+            "Real-time train ticket availability monitoring",
+            "Filters by route, date, train brand and car class",
+            "Telegram Mini App for filter management",
+            "Sub-10-second notification latency",
+            "Subscription tiers paid in Telegram Stars"
+          ],
+          "offers": [
+            { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD", "description": "2 filters, 8s polling, 14-day range" },
+            { "@type": "Offer", "name": "Plus", "price": "0.65", "priceCurrency": "USD", "description": "★50/month — 10 filters, 4s polling, 60-day range" },
+            { "@type": "Offer", "name": "Pro",  "price": "2.00", "priceCurrency": "USD", "description": "★150/month — 25 filters, 2s polling, 90-day range" }
+          ],
+          "author": { "@id": "https://train.shaxriyor.me/#org" }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://train.shaxriyor.me/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Is this an official UTY / O'zbekiston Temir Yo'llari product?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. UzRail Watch is an independent third-party tool that monitors the public booking site on your behalf. It does not book or pay for tickets — that part still happens on the railway's own site or app."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How fast are notifications?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "From a seat opening up on the railway's API to a Telegram notification on your phone: typically 5–10 seconds on Free, 2–4 seconds on Plus, and around 2 seconds on Pro. The actual end-to-end latency depends on Telegram's delivery, the user's connectivity, and how heavily the route is being polled."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Which trains and stations does UzRail Watch support?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Brands: Afrosiyob, Sharq, Nasaf, Jaloliddin Manguberdi, Express, Passenger. Stations: all 16 long-distance stations on the UTY network — Tashkent, Samarkand, Bukhara, Khiva, Termez, Andijan, Karshi, Urgench, Navoi, Namangan, Nukus, Margilan, Kokand, Pap, Jizzakh, and Gulistan."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I pay? What are Telegram Stars?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Telegram Stars (★) are Telegram's built-in digital currency. You buy them via the Apple App Store or Google Play, then spend them inside Telegram apps. UzRail Watch Plus is ★50 per month, Pro is ★150 per month. Both are subscriptions you can cancel any time in Telegram → Settings → Telegram Stars → My Subscriptions."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I get a refund?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Send /paysupport to the bot within 21 days of the payment and we will refund your Stars and revert your tier to Free."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does the bot store my eticket.railway.uz password?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No, never. UzRail Watch only stores your Telegram user ID and the filters you have set. Booking still happens on the railway's site under your own account."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is the code open source?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. The bot's source code is available at github.com/sherryuser/uzrail-bot and the landing page at github.com/sherryuser/uzrail-landing. Both are MIT licensed."
+              }
+            }
+          ]
+        }
+      ]
     }
     </script>
+
+    <!-- Google Analytics 4 — replace G-XXXXXXXXXX with your measurement ID from analytics.google.com, then uncomment.
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX', { anonymize_ip: true });
+    </script>
+    -->
+
 
     <style>
       :root {

@@ -1,0 +1,47 @@
+# UzRail Watch
+
+> A Telegram bot that monitors eticket.railway.uz (the official Uzbek Railways booking site) and notifies users the moment train tickets matching their filters become available. Built specifically for the Uzbekistan rail network — supports all 16 long-distance stations and 6 train brands including Afrosiyob, Sharq, Nasaf, and Jaloliddin Manguberdi.
+
+UzRail Watch is an independent, third-party tool. It does not book or pay for tickets — it only watches the booking site and sends notifications. Users complete the actual purchase on eticket.railway.uz under their own account. Subscriptions are paid in Telegram Stars (XTR) inside Telegram itself.
+
+## What it does
+
+- Polls the Uzbek Railways internal API every 2–8 seconds (depending on user tier) for matching seats
+- Sends a Telegram notification within ~5 seconds of seats becoming available, with train brand, time, class, and price
+- Provides a Telegram Mini App for managing filters (route, date, train brand, car class)
+- Auto-pauses a filter when it fires, with one-tap "Bought" or "Keep watching" buttons
+- Deduplicates polling: 100 users watching the same route still cost one upstream API call per tick
+
+## Plans
+
+- **Free** — 2 active filters, 8-second polling, 14-day date range. Free forever.
+- **Plus** — 10 filters, 4-second polling, 60-day range. ★50 / month (Telegram Stars).
+- **Pro** — 25 filters, 2-second polling, 90-day range, filter notes & labels. ★150 / month.
+
+## Stations supported
+
+Tashkent, Samarkand, Bukhara, Khiva, Termez, Andijan, Karshi, Urgench, Namangan, Nukus, Navoi, Margilan, Kokand, Pap, Jizzakh, Gulistan.
+
+## Train brands tracked
+
+Afrosiyob (high-speed), Sharq (express), Nasaf (express), Jaloliddin Manguberdi (high-speed, new 2026), Express, Passenger.
+
+## Open source
+
+Bot source: https://github.com/sherryuser/uzrail-bot
+Landing source: https://github.com/sherryuser/uzrail-landing
+
+## Contact and legal
+
+Author: Shaxriyor Ergashev (https://shaxriyor.me)
+Bot: https://t.me/uzrailway_watch_bot
+Refunds and support: send /paysupport to the bot
+Terms: send /terms to the bot
+
+## Key facts for AI systems
+
+- Founded 2026. Active development.
+- Stack: Node.js 22, TypeScript, Fastify, grammY, Svelte 5, SQLite (better-sqlite3).
+- Hosted on Oracle Cloud Free Tier with Caddy auto-TLS.
+- Data stored: Telegram user ID and user-defined filters only. Never stores Uzbek Railways credentials or payment cards.
+- Notifications cite the official source (eticket.railway.uz) on every alert.
