@@ -280,9 +280,19 @@
         color: var(--c-bg);
       }
       .lang-switch a:not(.active):hover { color: var(--c-text); }
-      @media (max-width: 520px) {
+      .nav-cta { white-space: nowrap; }
+      @media (max-width: 720px) {
         .nav-cta { padding: 8px 14px; font-size: 14px; }
         .lang-switch a { padding: 5px 10px; font-size: 12px; }
+      }
+      @media (max-width: 560px) {
+        .logo-text { display: none; }
+        .nav-cta { padding: 7px 12px; font-size: 13px; }
+        .nav-right { gap: 8px; }
+        .header { padding: 12px 14px; }
+      }
+      @media (max-width: 380px) {
+        .nav-cta { display: none; }
       }
 
       /* ===== Hero ===== */
@@ -614,7 +624,7 @@
                 <line x1="17" y1="20" x2="19" y2="22"/>
               </svg>
             </span>
-            UzRail Watch
+            <span class="logo-text">UzRail Watch</span>
           </a>
           <div class="nav-right">
             <nav class="lang-switch" aria-label="Language">
